@@ -20,6 +20,21 @@ return [
     'aliases' => [
         '@mdm/admin' => '@vendor/mdmsoft/yii2-admin',
     ],
+    'language' => 'zh-CN',
+//    'charset' => 'utf-8',
+//    'timeZone' => 'Asia/Shanghai',
+//    //语言包配置
+//    'i18n' => [
+//        'translations' => [
+//            '*' => [
+//                'class' => 'yii\i18n\PhpMessageSource',
+//                'fileMap' => [
+//                    'common' => 'common.php' //可以加多个，是yii::t里面的第一个参数名
+//                ],
+//                'basePath' => '@common/message', //配置语言文件路径，现在采用默认的，就可以不配置这个
+//            ],
+//        ],
+//    ],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
@@ -74,8 +89,8 @@ return [
         'allowActions' => [
             //这里是允许访问的action，不受权限控制
             //controller/action
-            'site/*',
-            'admin/role',//允许所有人访问admin节点及其子节点
+//            'site/*',
+            '*',//允许所有人访问admin节点及其子节点
         ]
     ],
     'params' => $params,
