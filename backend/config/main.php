@@ -23,27 +23,10 @@ return [
     'language' => 'zh-CN',
 //    'charset' => 'utf-8',
 //    'timeZone' => 'Asia/Shanghai',
-//    //语言包配置
-//    'i18n' => [
-//        'translations' => [
-//            '*' => [
-//                'class' => 'yii\i18n\PhpMessageSource',
-//                'fileMap' => [
-//                    'rbac-admin' => 'common.php' //可以加多个，是yii::t里面的第一个参数名
-//                ],
-//                'basePath' => '@common/message', //配置语言文件路径，现在采用默认的，就可以不配置这个
-//            ],
-//        ],
-//    ],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
         ],
-//        'user' => [
-//            'identityClass' => 'common\models\User',
-//            'enableAutoLogin' => true,
-//            'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
-//        ],
         'user' => [
             'identityClass' => 'backend\models\UserBackend',
             'enableAutoLogin' => true,
@@ -72,6 +55,19 @@ return [
             'bundles' => [
                 'dmstr\web\AdminLteAsset' => [
                     'skin' => 'skin-green-light',
+                ],
+            ],
+        ],
+        //语言包配置
+        'i18n' => [
+            'translations' => [
+                '*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'fileMap' => [
+//                        'rbac-admin' => 'rbac-admin.php' //可以加多个，是yii::t里面的第一个参数名
+                    ],
+                    'sourceLanguage' => 'en',
+                    'basePath' => '@common/message', //配置语言文件路径，现在采用默认的，就可以不配置这个
                 ],
             ],
         ],

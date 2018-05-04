@@ -75,6 +75,8 @@ use yii\bootstrap\Modal;
 Modal::begin([
     'id' => 'operate-modal',
     'header' => '<h4 class="modal-title"></h4>',
+    'footer' =>  '<a href="#" class="btn btn-primary" data-dismiss="modal">关闭</a>',
+
 ]);
 Modal::end();
 ?>
