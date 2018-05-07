@@ -15,6 +15,13 @@ return [
         'admin' => [
             'class' => 'mdm\admin\Module',
         ],
+        //富文本编辑器
+        'redactor' => [
+            'class' => 'yii\redactor\RedactorModule',
+            'uploadDir' => 'backend/web/uploads',  // 上传目录,比如这里可以填写 ./uploads
+            'uploadUrl' => 'backend/web/uploads',
+            'imageAllowExtensions' => ['jpg', 'png', 'gif']
+        ],
         //......
     ],
     'aliases' => [

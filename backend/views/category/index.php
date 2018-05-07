@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ])
         ?>
     </p>
-
+    <?= \yii\redactor\widgets\Redactor::widget([ 'model' => $searchModel, 'attribute' => 'content' ]) ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -35,6 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'name',
+            'content',
 
             [
                 'class' => 'yii\grid\ActionColumn',
