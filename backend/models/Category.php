@@ -3,6 +3,7 @@
 namespace backend\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "category".
@@ -41,5 +42,22 @@ class Category extends \yii\db\ActiveRecord
             'name' => 'Name',
             'content' => 'Content'
         ];
+    }
+    /**
+     * 获取分类的枚举值
+     *
+     * @author   gongxiangzhu
+     * @dateTime 2018/5/7 15:08
+     *
+     * @param  integer $id
+     * @param  string  $name
+     *
+     * @return mixed
+     */
+    public static function dropDownList(){
+        $query = static::find();
+        $enums = $query->all();
+        return $enums ? ArrayHelper::map($enums, 'id', 'name') : [];
+
     }
 }
