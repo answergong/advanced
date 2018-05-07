@@ -71,6 +71,19 @@ return [
                 ],
             ],
         ],
+        //静态配置主题
+//        'view' => [
+//            'theme' => [
+//                // 'basePath' => '@app/themes/spring',
+//                // 'baseUrl' => '@web/themes/spring',
+//                'pathMap' => [
+//                    '@app/views' => [
+//                        '@app/themes/christmas',
+//                        '@app/themes/spring',
+//                    ]
+//                ],
+//            ],
+//        ],
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,
@@ -79,6 +92,10 @@ return [
             ],
         ],
         */
+    ],
+    //动态配置主题(通过开关来配置  backend/components/themecontrol.php)
+    'as theme' => [
+        'class' => 'backend\components\ThemeControl',
     ],
     'as access' => [
         'class' => 'mdm\admin\components\AccessControl',
