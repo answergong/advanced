@@ -17,6 +17,30 @@ use yii\base\Exception;
 class BlogController extends Controller
 {
     /**
+     * 初始化方法init()
+     *
+     * @author   gongxiangzhu
+     * @dateTime 2018/6/5 17:55
+     *
+     * @return mixed
+     */
+    public function init()
+    {
+        parent::init();
+
+    }
+
+    public function onBeforeInsert()
+    {
+        Yii::info('我是新增前触发的事件,小前qian');
+    }
+
+    public function onAfterInsert()
+    {
+        Yii::info('我是新增后触发的事件,小后hou');
+    }
+
+    /**
      * @inheritdoc
      */
     public function behaviors()
@@ -71,6 +95,8 @@ class BlogController extends Controller
 
     public function actionCreate()
     {
+        $this->on(self::EVENT_BEFORE_ACTION, [$this, 'onBeforeInsert']);
+        $this->on(self::EVENT_AFTER_ACTION, [$this, 'onAfterInsert']);
         $model = new Blog();
         // 注意这里调用的是validate，非save,save我们放在了事务中处理了
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {

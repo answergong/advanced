@@ -6,7 +6,14 @@
  * Time: 16:37
  */
 
-class MailEvent
+namespace backend\components\event;
+
+class MailEvent extends \yii\base\Event
 {
+    public $email;
+
+    public $subject;
+
+    public $content;
 
 }

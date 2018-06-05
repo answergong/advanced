@@ -58,10 +58,28 @@ class LoginForm extends Model
     public function login()
     {
         if ($this->validate()) {
+            //登陆后触发事件
+            Yii::$app->user->on(yii\web\User::EVENT_AFTER_LOGIN, [$this, 'onAfterLogin']);
             return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
         }
 
         return false;
+    }
+    /**
+     * 登陆后触发事件
+     *
+     * @author   gongxiangzhu
+     * @dateTime 2018/6/5 17:47
+     *
+     * @param  object $event
+     *
+     * @return mixed
+     */
+    public function onAfterLogin ($event)
+    {
+        $identity = $event->identity;
+        $date = date('Y-m-d H:i:s');
+        yii::info("gxz,大神,id={$identity->id}的用户最后一次登录系统的时间是{$date},请指示!");
     }
 
     /**
